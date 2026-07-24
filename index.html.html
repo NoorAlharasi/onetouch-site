@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>OneTouch — the operations layer for managed communities</title>
+<meta name="description" content="OneTouch is the operations coordination layer for smart cities, gated compounds and managed residential communities in Oman. One request, broadcast to every vetted provider.">
+
+<!-- ============================================================
+     REPLACE https://onetouch.om WITH YOUR REAL DOMAIN BEFORE PUBLISHING.
+     These tags control the preview card in WhatsApp, LinkedIn and email.
+     og:image must be a full absolute URL, 1200x630px.
+     ============================================================ -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="OneTouch · لمسة واحدة">
+<meta property="og:url" content="https://onetouch.om/">
+<meta property="og:title" content="OneTouch — the operations layer for managed communities">
+<meta property="og:description" content="One request, broadcast to every vetted provider in the community. The one that earns it, gets it.">
+<meta property="og:image" content="https://onetouch.om/preview.png">
+<meta property="og:locale" content="en">
+<meta property="og:locale:alternate" content="ar_OM">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0B63CE">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:#0A2540;
+  --blue:#0B63CE;
+  --blue-deep:#063C82;
+  --wash:#EDF3FC;
+  --line:#CBD9EC;
+  --paper:#FFFFFF;
+  --muted:#59718F;
+  --sans:"IBM Plex Sans Arabic",system-ui,sans-serif;
+  --mono:"IBM Plex Mono","IBM Plex Sans Arabic",monospace;
+  --pad:clamp(20px,5vw,56px);
+  --maxw:1120px;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-weight:400;
+  line-height:1.55;
+  font-size:17px;
+  -webkit-font-smoothing:antialiased;
+}
+:focus-visible{outline:2.5px solid var(--blue);outline-offset:3px;border-radius:2px}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--pad)}
+
+/* ---------- eyebrow / utility type ---------- */
+.eyebrow{
+  font-family:var(--mono);
+  font-size:11.5px;
+  font-weight:500;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--blue);
+  margin:0 0 18px;
+}
+html[lang="ar"] .eyebrow{letter-spacing:0;font-family:var(--sans);font-size:13px}
+
+/* ---------- header ---------- */
+header{
+  position:sticky;top:0;z-index:40;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.bar{
+  max-width:var(--maxw);margin:0 auto;
+  padding:14px var(--pad);
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.mark{display:flex;align-items:baseline;gap:10px;text-decoration:none;color:var(--ink)}
+.mark b{font-weight:600;font-size:19px;letter-spacing:-.015em}
+.mark span{font-size:16px;font-weight:400;color:var(--muted)}
+.langbtn{
+  font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.08em;
+  background:none;border:1px solid var(--line);color:var(--ink);
+  padding:7px 13px;border-radius:100px;cursor:pointer;
+  transition:background .15s,border-color .15s;
+}
+.langbtn:hover{background:var(--wash);border-color:var(--blue)}
+
+/* ---------- hero ---------- */
+.hero{padding-block:clamp(52px,8vw,92px) clamp(40px,6vw,64px)}
+h1{
+  margin:0;
+  font-weight:600;
+  font-size:clamp(34px,5.4vw,60px);
+  line-height:1.06;
+  letter-spacing:-.03em;
+  max-width:17ch;
+}
+html[lang="ar"] h1{letter-spacing:0;line-height:1.28;max-width:20ch}
+h1 em{font-style:normal;color:var(--blue)}
+.lede{
+  margin:26px 0 0;
+  font-size:clamp(17px,1.9vw,20px);
+  line-height:1.6;
+  color:var(--muted);
+  max-width:60ch;
+  font-weight:300;
+}
+
+/* ---------- signature diagram ---------- */
+.stage{
+  margin-top:clamp(36px,5vw,56px);
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:
+    linear-gradient(var(--paper),var(--paper)) padding-box,
+    var(--wash);
+  padding:clamp(14px,3vw,26px);
+}
+.stage svg{display:block;width:100%;height:auto}
+.stage figcaption{
+  font-family:var(--mono);font-size:12px;color:var(--muted);
+  margin:14px 2px 0;letter-spacing:.02em;
+}
+html[lang="ar"] .stage figcaption{font-family:var(--sans);font-size:14px}
+
+.d-label{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.14em;fill:var(--muted)}
+.d-name{font-family:var(--sans);font-size:17px;font-weight:500;fill:var(--ink)}
+.d-sub{font-family:var(--mono);font-size:13px;fill:var(--muted)}
+.d-score{font-family:var(--mono);font-size:19px;font-weight:500;fill:var(--blue)}
+.d-card{fill:var(--paper);stroke:var(--line);stroke-width:1.5}
+.d-req{fill:var(--wash);stroke:var(--blue);stroke-width:1.5}
+.d-wire{fill:none;stroke:var(--blue);stroke-width:1.5;stroke-linecap:round;opacity:.55}
+
+/* animated states */
+.anim .d-wire{stroke-dasharray:260;stroke-dashoffset:260;animation:draw 9s ease-in-out infinite}
+.anim .w2{animation-delay:.12s}
+.anim .w3{animation-delay:.24s}
+.anim .g-prov{opacity:0;animation:appear 9s ease-in-out infinite}
+.anim .p2{animation-delay:.15s}
+.anim .p3{animation-delay:.3s}
+.anim .g-req{opacity:0;animation:reqin 9s ease-in-out infinite}
+.anim .g-win{opacity:0;animation:win 9s ease-in-out infinite}
+.anim .g-dim{opacity:0;animation:appeardim 9s ease-in-out infinite}
+.f-blue{fill:var(--blue)}
+.f-wash{fill:var(--wash)}
+.f-paper{fill:#fff}
+.f-deep{fill:var(--blue-deep)}
+
+@keyframes reqin{0%,2%{opacity:0;transform:translateY(6px)}10%,94%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes draw{0%,12%{stroke-dashoffset:260;opacity:0}
+  14%{opacity:.55}
+  30%,60%{stroke-dashoffset:0;opacity:.55}
+  72%,94%{stroke-dashoffset:0;opacity:.18}100%{opacity:0}}
+@keyframes appear{0%,28%{opacity:0}36%,94%{opacity:1}100%{opacity:0}}
+@keyframes win{0%,62%{opacity:0}70%,94%{opacity:1}100%{opacity:0}}
+@keyframes appeardim{0%,28%{opacity:0}36%,62%{opacity:1}70%,94%{opacity:.32}100%{opacity:0}}
+
+@media (prefers-reduced-motion:reduce){
+  .anim .d-wire,.anim .g-prov,.anim .g-req,.anim .g-win,.anim .g-dim{animation:none!important}
+  .anim .d-wire{stroke-dashoffset:0}
+  .anim .g-prov,.anim .g-req,.anim .g-win{opacity:1}
+  .anim .g-dim{opacity:.32!important}
+}
+
+/* ---------- scope strip ---------- */
+.strip{
+  border-block:1px solid var(--line);
+  background:var(--wash);
+  padding-block:clamp(30px,4.5vw,44px);
+}
+.strip p{
+  margin:0;max-width:46ch;
+  font-size:clamp(20px,2.6vw,28px);
+  font-weight:500;line-height:1.34;letter-spacing:-.015em;
+}
+html[lang="ar"] .strip p{letter-spacing:0;line-height:1.5}
+.strip small{
+  display:block;margin-top:14px;max-width:56ch;
+  font-size:16px;font-weight:300;color:var(--muted);line-height:1.6;
+}
+
+/* ---------- generic section ---------- */
+section{padding-block:clamp(56px,7.5vw,96px)}
+h2{
+  margin:0 0 6px;
+  font-size:clamp(25px,3.2vw,34px);
+  font-weight:600;letter-spacing:-.022em;line-height:1.2;
+}
+html[lang="ar"] h2{letter-spacing:0;line-height:1.4}
+.sectionnote{margin:0 0 42px;color:var(--muted);font-weight:300;max-width:56ch}
+
+/* ---------- flow steps ---------- */
+.flow{list-style:none;margin:0;padding:0;display:grid;gap:0;counter-reset:s}
+.flow li{
+  border-top:1px solid var(--line);
+  padding-block:26px;
+  display:grid;
+  grid-template-columns:56px minmax(0,1fr);
+  gap:0 22px;
+  align-items:start;
+}
+.flow li:last-child{border-bottom:1px solid var(--line)}
+.flow .n{
+  font-family:var(--mono);font-size:13px;font-weight:500;
+  color:var(--blue);padding-top:5px;letter-spacing:.06em;
+}
+.flow h3{margin:0 0 7px;font-size:19px;font-weight:600;letter-spacing:-.01em}
+html[lang="ar"] .flow h3{letter-spacing:0}
+.flow p{margin:0;color:var(--muted);font-weight:300;max-width:62ch}
+
+/* ---------- score ---------- */
+.score{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.score div{background:var(--paper);padding:26px 22px}
+.score .pct{font-family:var(--mono);font-size:clamp(30px,4vw,40px);font-weight:500;color:var(--blue);line-height:1;letter-spacing:-.02em}
+.score .k{display:block;margin:14px 0 6px;font-weight:600;font-size:16px}
+.score .v{margin:0;font-size:15px;color:var(--muted);font-weight:300;line-height:1.5}
+.prize{
+  margin:24px 0 0;padding:20px 24px;
+  border-inline-start:3px solid var(--blue);
+  background:var(--wash);border-radius:0 10px 10px 0;
+  font-size:18px;font-weight:500;
+}
+html[dir="rtl"] .prize{border-radius:10px 0 0 10px}
+
+/* ---------- parties ---------- */
+.parties{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.party{background:var(--paper);padding:26px 24px}
+.party .who{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:12px}
+html[lang="ar"] .party .who{font-family:var(--sans);font-size:13.5px;letter-spacing:0}
+.party .gets{font-size:21px;font-weight:600;color:var(--blue);letter-spacing:-.015em;display:block;margin-bottom:9px}
+html[lang="ar"] .party .gets{letter-spacing:0}
+.party p{margin:0;font-size:15.5px;color:var(--muted);font-weight:300;line-height:1.55}
+
+/* ---------- founders ---------- */
+.people{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:34px}
+.person h3{margin:0 0 4px;font-size:20px;font-weight:600;letter-spacing:-.012em}
+html[lang="ar"] .person h3{letter-spacing:0}
+.person .role{font-family:var(--mono);font-size:12.5px;color:var(--blue);letter-spacing:.06em;display:block;margin-bottom:12px}
+html[lang="ar"] .person .role{font-family:var(--sans);font-size:14.5px;letter-spacing:0}
+.person p{margin:0;color:var(--muted);font-weight:300;font-size:15.5px}
+.award{
+  margin-top:38px;padding-top:22px;border-top:1px solid var(--line);
+  font-size:16px;color:var(--muted);font-weight:300;
+}
+.award b{color:var(--ink);font-weight:600}
+
+/* ---------- contact ---------- */
+.contact{background:var(--ink);color:var(--paper)}
+.contact h2{color:var(--paper)}
+.contact .sectionnote{color:#A9C2DE}
+.contact .eyebrow{color:#7FB2F0}
+.mail{
+  display:inline-block;margin-top:6px;
+  font-size:clamp(17px,2.4vw,26px);font-weight:500;letter-spacing:-.015em;
+  color:var(--paper);text-decoration:none;overflow-wrap:anywhere;
+  border-bottom:2px solid rgba(255,255,255,.35);padding-bottom:4px;
+  transition:border-color .15s;
+}
+.mail:hover{border-color:var(--paper)}
+.linkedin{
+  display:inline-block;margin-top:22px;
+  font-family:var(--mono);font-size:14px;letter-spacing:.02em;
+  color:#A9C2DE;text-decoration:none;
+  border:1px solid rgba(255,255,255,.25);border-radius:100px;
+  padding:9px 18px;transition:border-color .15s,color .15s;
+}
+html[lang="ar"] .linkedin{font-family:var(--sans);font-size:15px}
+.linkedin:hover{color:var(--paper);border-color:var(--paper)}
+.meta{margin-top:34px;font-size:15px;color:#A9C2DE;font-weight:300}
+
+footer{background:var(--ink);color:#7E9AB8;font-size:13.5px;padding-block:26px;border-top:1px solid rgba(255,255,255,.12)}
+.footin{max-width:var(--maxw);margin:0 auto;padding-inline:var(--pad);display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:space-between}
+
+@media (max-width:620px){
+  .score{grid-template-columns:1fr}
+  .flow li{grid-template-columns:1fr;gap:8px}
+  .flow .n{padding-top:0}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="bar">
+    <a class="mark" href="#top"><b>OneTouch</b><span>لمسة واحدة</span></a>
+    <button class="langbtn" id="lang" type="button" aria-label="Switch language">العربية</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <div class="wrap hero">
+    <p class="eyebrow" data-ar="طبقة تنسيق العمليات · سلطنة عُمان">Operations coordination layer · Oman</p>
+
+    <h1 data-ar="طلبٌ واحد. وكل مزوّد <em>يتنافس على كسبه.</em>">One request. Every provider <em>competing to earn it.</em></h1>
+
+    <p class="lede" data-ar="«لمسة واحدة» هي طبقة تنسيق العمليات للمدن الذكية والمجمّعات المسوّرة والمجتمعات السكنية المُدارة. تربط الساكن الذي يبلّغ عن العطل، والفني الذي يصلحه، والمشغّل المسؤول عن الاثنين — في سجلٍّ واحد يمكن الرجوع إليه.">OneTouch is the coordination layer for smart cities, gated compounds and managed residential communities. It connects the resident who reports a problem, the technician who fixes it, and the operator accountable for both — in one record everyone can stand behind.</p>
+
+    <figure class="stage anim" style="margin-inline:0">
+      <svg viewBox="0 0 560 272" role="img" aria-labelledby="digt">
+        <title id="digt" data-ar="رسم توضيحي: يصل الطلب إلى ثلاثة مزوّدين معتمدين في الوقت نفسه، ويستلمه صاحب أعلى نتيجة.">Diagram: one request reaches three vetted providers at once, and the highest-scoring provider claims it.</title>
+
+        <!-- request -->
+        <g class="g-req">
+          <text class="d-label" x="12" y="104" data-ar="الطلب">REQUEST</text>
+          <rect class="d-req" x="12" y="116" width="176" height="66" rx="9"/>
+          <text class="d-name" x="30" y="144" data-ar="المكيّف لا يبرّد">AC not cooling</text>
+          <text class="d-sub" x="30" y="166">Unit B-1204</text>
+        </g>
+
+        <!-- wires -->
+        <path class="d-wire w1" d="M188 149 C 262 149, 268 62, 342 62"/>
+        <path class="d-wire w2" d="M188 149 C 262 149, 268 149, 342 149"/>
+        <path class="d-wire w3" d="M188 149 C 262 149, 268 236, 342 236"/>
+
+        <!-- providers -->
+        <text class="d-label g-prov" x="342" y="30" data-ar="المزوّدون المعتمدون">VETTED PROVIDERS</text>
+
+        <g class="g-prov p1 g-dim">
+          <rect class="d-card" x="342" y="40" width="206" height="60" rx="9"/>
+          <text class="d-name" x="360" y="70" data-ar="مزوّد أ">Provider A</text>
+          <text class="d-score" x="530" y="72" text-anchor="end">78</text>
+        </g>
+
+        <g class="g-prov p2">
+          <rect class="d-card" x="342" y="127" width="206" height="60" rx="9"/>
+          <text class="d-name" x="360" y="157" data-ar="مزوّد ب">Provider B</text>
+          <text class="d-score" x="530" y="159" text-anchor="end">91</text>
+        </g>
+
+        <g class="g-prov p3 g-dim">
+          <rect class="d-card" x="342" y="214" width="206" height="60" rx="9"/>
+          <text class="d-name" x="360" y="244" data-ar="مزوّد ج">Provider C</text>
+          <text class="d-score" x="530" y="246" text-anchor="end">84</text>
+        </g>
+
+        <!-- winner overlay -->
+        <g class="g-win">
+          <rect class="f-blue" x="342" y="127" width="206" height="60" rx="9"/>
+          <text class="d-name f-paper" x="360" y="157" data-ar="مزوّد ب">Provider B</text>
+          <text class="d-score f-paper" x="530" y="159" text-anchor="end">91</text>
+          <rect class="f-wash" x="342" y="196" width="82" height="21" rx="10.5"/>
+          <text class="d-sub f-deep" x="383" y="211" text-anchor="middle" data-ar="مُستلَم">claimed</text>
+        </g>
+      </svg>
+      <figcaption data-ar="لا يوزَّع الطلب يدويًا. يُبثّ إلى الجميع، ويستلمه من استحقّه.">Nothing is hand-assigned. The request is broadcast, and standing decides who takes it.</figcaption>
+    </figure>
+  </div>
+
+  <!-- SCOPE -->
+  <div class="strip">
+    <div class="wrap">
+      <p data-ar="نحن نخدم المجتمعات المُدارة، لا المنازل الفردية.">We serve managed communities, not individual homes.</p>
+      <small data-ar="تُبنى «لمسة واحدة» للجهة المسؤولة عن آلاف الوحدات: مشغّل المرافق، والمطوّر، وإدارة المدينة. أما الساكن والفني فهما المستخدمان اللذان تعتمد المنصة على ثقتهما.">OneTouch is built for whoever is accountable for thousands of units at once — the facilities operator, the developer, the city management. Residents and technicians are the users the system depends on to work.</small>
+    </div>
+  </div>
+
+  <!-- FLOW -->
+  <section>
+    <div class="wrap">
+      <p class="eyebrow" data-ar="المسار">The path</p>
+      <h2 data-ar="كيف ينتقل الطلب">How a request moves</h2>
+      <p class="sectionnote" data-ar="أربع خطوات، بلا مكالمات ولا متابعة يدوية بينها.">Four steps, with no phone calls or manual chasing in between.</p>
+
+      <ol class="flow">
+        <li>
+          <span class="n">01</span>
+          <div>
+            <h3 data-ar="الإبلاغ">Report</h3>
+            <p data-ar="يبلّغ الساكن عبر تطبيق المجتمع أو عبر روبوت واتساب الخاص بـ«لمسة واحدة». قناتان فقط — دون اتصال بالاستقبال، ودون رسالة تضيع في مجموعة.">A resident reports through the community app or the OneTouch WhatsApp bot. Two channels only — no call to reception, no message lost in a group chat.</p>
+          </div>
+        </li>
+        <li>
+          <span class="n">02</span>
+          <div>
+            <h3 data-ar="البثّ">Broadcast</h3>
+            <p data-ar="يصل الطلب في اللحظة نفسها إلى كل مزوّد معتمد يغطي هذا المجتمع. لا يوجد منسّق يوزّع المهام، ولا انتظار في طابور.">The request reaches every vetted provider covering that community at the same moment. No coordinator distributing work, no queue to sit in.</p>
+          </div>
+        </li>
+        <li>
+          <span class="n">03</span>
+          <div>
+            <h3 data-ar="الاستلام والإصلاح">Claim and fix</h3>
+            <p data-ar="يستلم المزوّد المهمة، ويصل الفني ومعه سجل الوحدة كاملًا: ما الذي أُصلح سابقًا، ومتى، ومن قام به. صورة قبل وبعد لكل زيارة.">A provider claims the job, and the technician arrives holding the unit's full history — what was fixed before, when, and by whom. A before and after photo on every visit.</p>
+          </div>
+        </li>
+        <li>
+          <span class="n">04</span>
+          <div>
+            <h3 data-ar="التأكيد">Confirm</h3>
+            <p data-ar="يؤكد الساكن أن العطل قد عولج فعلًا، ويقيّم الزيارة. ولا يُغلق الطلب قبل ذلك. هذا التقييم يعود مباشرة إلى نتيجة المزوّد.">The resident confirms the problem is actually solved and rates the visit. The job does not close until they do. That rating feeds straight back into the provider's score.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- SCORE -->
+  <section style="background:var(--wash);border-block:1px solid var(--line)">
+    <div class="wrap">
+      <p class="eyebrow" data-ar="النتيجة">The score</p>
+      <h2 data-ar="كيف يُكتسب الطلب التالي">How the next request is earned</h2>
+      <p class="sectionnote" data-ar="لكل مزوّد نتيجة واحدة مركّبة، مبنية على عمل منجَز لا على وعود تعاقدية.">Every provider carries one composite score, built from work actually delivered rather than what a contract promised.</p>
+
+      <div class="score">
+        <div>
+          <span class="pct">45%</span>
+          <span class="k" data-ar="الإصلاح من الزيارة الأولى">First-time fix</span>
+          <p class="v" data-ar="هل عولج العطل من الزيارة الأولى، أم عاد الفني مرة أخرى؟">Was it solved on the first visit, or did someone have to come back?</p>
+        </div>
+        <div>
+          <span class="pct">35%</span>
+          <span class="k" data-ar="تقييم الساكن">Resident rating</span>
+          <p class="v" data-ar="هل قبِل من يسكن الوحدة النتيجة فعلًا؟">Did the person living in the unit actually accept the outcome?</p>
+        </div>
+        <div>
+          <span class="pct">20%</span>
+          <span class="k" data-ar="زمن الاستجابة">Response time</span>
+          <p class="v" data-ar="كم مضى من وقت الإبلاغ حتى وصول الفني؟">How long between the report and someone arriving at the door?</p>
+        </div>
+      </div>
+
+      <p class="prize" data-ar="الجائزة ليست مكافأة مالية — بل الطلب التالي.">The prize is not a bonus payment. The prize is the next request.</p>
+    </div>
+  </section>
+
+  <!-- PARTIES -->
+  <section>
+    <div class="wrap">
+      <p class="eyebrow" data-ar="الأطراف">The parties</p>
+      <h2 data-ar="ما الذي يحصل عليه كل طرف">What each side gets</h2>
+      <p class="sectionnote" data-ar="أربعة أطراف في مسارٍ واحد. لكلٍّ منها سبب مختلف تمامًا للاهتمام.">Four parties in one flow, each with a completely different reason to care.</p>
+
+      <div class="parties">
+        <div class="party">
+          <span class="who" data-ar="الساكن">Resident</span>
+          <span class="gets" data-ar="راحة البال">Relief</span>
+          <p data-ar="يعرف أن أحدًا قادم، ومتى، ومن هو — دون الحاجة إلى المتابعة.">Knows someone is coming, when, and who — without having to chase anyone.</p>
+        </div>
+        <div class="party">
+          <span class="who" data-ar="المزوّد">Provider</span>
+          <span class="gets" data-ar="فرصة">Opportunity</span>
+          <p data-ar="عملٌ يُكتسب بالأداء، لا بالعلاقات ولا بموقعه في قائمة المشغّل.">Work won on performance rather than on relationships or a place on someone's list.</p>
+        </div>
+        <div class="party">
+          <span class="who" data-ar="مشغّل المرافق">Operator</span>
+          <span class="gets" data-ar="دليل">Proof</span>
+          <p data-ar="سجلٌّ مستقل لما حدث فعلًا، صالح لاجتماع الميزانية وتجديد العقد.">An independent record of what actually happened — usable in a budget meeting or a contract renewal.</p>
+        </div>
+        <div class="party">
+          <span class="who" data-ar="إدارة المدينة">City management</span>
+          <span class="gets" data-ar="إشراف">Oversight</span>
+          <p data-ar="مقارنة بين الأحياء ومزوّدي الخدمة على أساس واحد، دون المرور عبر تقارير المشغّل.">Districts and providers compared on one basis, without passing through the operator's own reporting.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDERS -->
+  <section style="background:var(--wash);border-block:1px solid var(--line)">
+    <div class="wrap">
+      <p class="eyebrow" data-ar="الفريق">The team</p>
+      <h2 data-ar="المؤسِّسان">Founders</h2>
+      <p class="sectionnote" data-ar="مؤسسان عُمانيان، خلفيتهما هندسة العمليات والأنظمة التقنية.">Two Omani founders, from operations engineering and from systems.</p>
+
+      <div class="people">
+        <div class="person">
+          <h3 data-ar="نور الحراصي">Noor Al Harasi</h3>
+          <span class="role" data-ar="العمليات والمنتج">Operations and product</span>
+          <p data-ar="بكالوريوس الهندسة الصناعية وهندسة الأنظمة، جامعة مينيسوتا — الحرم التوأم. تعمل في مجال التحسين المستمر للعمليات.">BSc Industrial and Systems Engineering, University of Minnesota Twin Cities. Works in continuous improvement.</p>
+        </div>
+        <div class="person">
+          <h3 data-ar="محمد الحراصي">Mohammed Al Harasi</h3>
+          <span class="role" data-ar="التقنية">Technology</span>
+          <p data-ar="بكالوريوس علوم الحاسوب، جامعة مينيسوتا — الحرم التوأم. يعمل في مجال الأمن السيبراني.">BSc Computer Science, University of Minnesota Twin Cities. Works in cybersecurity.</p>
+        </div>
+      </div>
+
+      <p class="award" data-ar="<b>المركز الأول</b> — هاكاثون الخليج للتخطيط العمراني ٢٠٢٥."><b>First place</b> — Gulf Urban Planning Hackathon 2025.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact">
+    <div class="wrap">
+      <p class="eyebrow" data-ar="تواصل معنا">Get in touch</p>
+      <h2 data-ar="نتحدّث حاليًا مع المشغّلين والمطوّرين وإدارات المدن في عُمان.">We are talking to operators, developers and city teams in Oman.</h2>
+      <p class="sectionnote" data-ar="إن كنت مسؤولًا عن تقديم الخدمة في مجتمعٍ سكني، نودّ أن نسمع كيف تُدار الطلبات لديكم اليوم.">If you are responsible for service delivery in a community, we would like to hear how requests are handled there today.</p>
+
+      <a class="mail" href="mailto:noor.alharrasi.2000@gmail.com">noor.alharrasi.2000@gmail.com</a>
+
+      <div><a class="linkedin" href="https://www.linkedin.com/in/nooral20" target="_blank" rel="noopener" data-ar="نور الحراصي على لينكدإن ↗">Noor Al Harasi on LinkedIn ↗</a></div>
+
+      <p class="meta" data-ar="مسقط، سلطنة عُمان · العربية والإنجليزية">Muscat, Sultanate of Oman · Arabic and English</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footin">
+    <span>OneTouch · لمسة واحدة</span>
+    <span data-ar="© ٢٠٢٦ لمسة واحدة. جميع الحقوق محفوظة.">© 2026 OneTouch. All rights reserved.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn = document.getElementById('lang');
+  var nodes = document.querySelectorAll('[data-ar]');
+
+  // capture the English copy once, so switching back is lossless
+  nodes.forEach(function(n){ n.setAttribute('data-en', n.innerHTML); });
+
+  function setLang(lang){
+    var ar = lang === 'ar';
+    document.documentElement.lang = ar ? 'ar' : 'en';
+    document.documentElement.dir  = ar ? 'rtl' : 'ltr';
+    nodes.forEach(function(n){
+      n.innerHTML = n.getAttribute(ar ? 'data-ar' : 'data-en');
+    });
+    btn.textContent = ar ? 'English' : 'العربية';
+    btn.setAttribute('aria-label', ar ? 'Switch to English' : 'التحويل إلى العربية');
+  }
+
+  btn.addEventListener('click', function(){
+    setLang(document.documentElement.lang === 'ar' ? 'en' : 'ar');
+  });
+
+  // open in Arabic for Arabic-preferring browsers
+  if ((navigator.language || '').toLowerCase().indexOf('ar') === 0) setLang('ar');
+})();
+</script>
+
+</body>
+</html>
